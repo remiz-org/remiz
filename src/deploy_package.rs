@@ -53,7 +53,7 @@ pub fn deploy(
         trace!("Building command...");
         let output = Command::new(&path_to_subpackager)
             .current_dir(&global_conf.path.parent().unwrap())
-            .env("PACKER", "1")
+            .env("REMIZ", "1")
             .args(args)
             .output();
 

@@ -55,7 +55,7 @@ impl PackageConfig {
 
         let created_by = whoami::username();
 
-        const PACKER_VERSION: &str = env!("CARGO_PKG_VERSION");
+        const REMIZ_VERSION: &str = env!("CARGO_PKG_VERSION");
 
         let metadata = Metadata {
             name,
@@ -63,7 +63,7 @@ impl PackageConfig {
             toml,
             other,
             created_by,
-            remiz_version: Version::parse(PACKER_VERSION).expect("Could not parse PACKER_VERSION"),
+            remiz_version: Version::parse(REMIZ_VERSION).expect("Could not parse REMIZ_VERSION"),
         };
 
         let mut subpackages = Vec::new();

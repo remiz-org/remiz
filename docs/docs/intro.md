@@ -4,20 +4,13 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-Let's discover **Remiz in less than 5 minutes**.
+Let's discover **Docusaurus in less than 5 minutes**.
 
 ## Getting Started
 
-Get started by **installing Remiz**.
+Get started by **creating a new site**.
 
-Download the archive from the [release page](https://github.com/remiz-org/remiz/releases/latest) and unzip it.
-
-```
-wget remiz.tar.gz
-tar -xf remiz.tar.gz
-```
-
-You can then use the command right away.
+Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
 
 ### What you'll need
 

@@ -4,10 +4,12 @@
   <img src="https://github.com/remiz-org/remiz/blob/main/logo.png?raw=true">
 </p>
 
-![maintenance-status](https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg)
-![integration](https://github.com/remiz-org/remiz/actions/workflows/test.yml/badge.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Github All Releases](https://img.shields.io/github/downloads/remiz-org/remiz/total.svg)](https://github.com/remiz-org/remiz/releases/latest)
+<p align="center">
+  <a href="#" alt="maintenance-status"><img src="https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg"/></a>
+  <a href="#" alt="integration"><img src="https://github.com/remiz-org/remiz/actions/workflows/test.yml/badge.svg"/></a>
+  <a href="https://opensource.org/licenses/MIT" alt="License: MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"/></a>
+  <a href="https://github.com/remiz-org/remiz/releases/latest" alt="Github All Releases"><img src="https://img.shields.io/github/downloads/remiz-org/remiz/total.svg"/></a>
+</p>
 
 ## What is Remiz ?
 

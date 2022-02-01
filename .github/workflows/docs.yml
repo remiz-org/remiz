@@ -7,14 +7,14 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
+    name: Build Docusaurus and deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14.x
-          cache: npm
+          # cache: npm
       - name: Build docs
         working-directory: docs
         run: |

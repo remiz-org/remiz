@@ -1,6 +1,0 @@
-[packagers]
-copy_files = "packagers/copy_files.py"
-bar = "packagers/bar.py"
-
-[store]
-local = "packages/{name}_v{version}.pack"

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://remiz-org.github.io/remiz/blog</id>
-    <title>My Site Blog</title>
+    <title>Remiz Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://remiz-org.github.io/remiz/blog"/>
-    <subtitle>My Site Blog</subtitle>
+    <subtitle>Remiz Blog</subtitle>
     <icon>https://remiz-org.github.io/remiz/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>

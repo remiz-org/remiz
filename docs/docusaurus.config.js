@@ -24,7 +24,7 @@ const config = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
-                    editUrl: 'https://remiz-org.github.io/remiz/main/docs/',
+                    editUrl: 'https://github.com/remiz-org/remiz/tree/main/docs/',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),

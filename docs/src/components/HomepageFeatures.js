@@ -5,7 +5,7 @@ import styles from './HomepageFeatures.module.css';
 const FeatureList = [
   {
     title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('../../static/img/terminal.svg').default,
     description: (
       <>
         Remiz was designed from the ground up to be easily installed and
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: 'Extensible',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('../../static/img/toml.svg').default,
     description: (
       <>
         Write your configuration in <code>TOML</code> and use any

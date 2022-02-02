@@ -13,7 +13,7 @@ const config = {
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'facebook', // Usually your GitHub org/user name.
+    organizationName: 'remiz', // Usually your GitHub org/user name.
     projectName: 'remiz', // Usually your repo name.
 
     presets: [
@@ -55,6 +55,10 @@ const config = {
                 },
                 { to: '/blog', label: 'Blog', position: 'left' },
                 {
+                    type: 'localeDropdown',
+                    position: 'right',
+                },
+                {
                     href: 'https://github.com/remiz-org/remiz',
                     label: 'GitHub',
                     position: 'right',
@@ -74,15 +78,15 @@ const config = {
                     title: 'Community',
                     items: [{
                             label: 'Stack Overflow',
-                            href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                            href: 'https://stackoverflow.com/',
                         },
                         {
                             label: 'Discord',
-                            href: 'https://discordapp.com/invite/docusaurus',
+                            href: 'https://discordapp.com/',
                         },
                         {
                             label: 'Twitter',
-                            href: 'https://twitter.com/docusaurus',
+                            href: 'https://twitter.com/',
                         },
                     ],
                 },
@@ -94,18 +98,22 @@ const config = {
                         },
                         {
                             label: 'GitHub',
-                            href: 'https://github.com/facebook/docusaurus',
+                            href: 'https://github.com/remiz-org/remiz',
                         },
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Remiz, Inc.`,
         },
         prism: {
             theme: lightCodeTheme,
             darkTheme: darkCodeTheme,
         },
     }),
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en', 'fr'],
+    },
 };
 
 module.exports = config;

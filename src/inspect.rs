@@ -32,6 +32,7 @@ pub fn inspect(path: PathBuf) {
                 }
             }
 
+            info!("Number of subpackages : {}", package.subpackages.len());
             // List all subpackages
             for sub in package.subpackages {
                 info!("Subpackage : {}", sub.name);

@@ -123,10 +123,12 @@ impl Package {
                         return Err(RemizError::SubpackagerFailed);
                     }
 
+                    let mut number_files_in_subpackage = 0;
                     for e in WalkDir::new(&subpackage_path)
                         .into_iter()
                         .filter_map(|e| e.ok())
                     {
+                        number_files_in_subpackage += 1;
                         if e.metadata().unwrap().is_file() {
                             let data = match fs::read(&e.path()) {
                                 Ok(data) => data,
@@ -151,6 +153,16 @@ impl Package {
                                 data,
                             );
                         }
+                    }
+
+                    if number_files_in_subpackage == 0 {
+                        warn!("Subpackager {} did not create any files.", &sub.name);
+                    } else {
+                        info!(
+                            "Subpackager {} created {} files.",
+                            &sub.name,
+                            number_files_in_subpackage
+                        );
                     }
 
                     fs::remove_dir_all(subpackage_path)?;

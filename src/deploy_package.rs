@@ -38,15 +38,12 @@ pub fn deploy(
         args.push(format!("--path"));
         trace!("Compute absolute folder path...");
         let abs_folder_path = folder_path
-            .parent()
-            .unwrap()
             .canonicalize()
             .unwrap()
             .display()
             .to_string();
 
         args.push((&abs_folder_path).to_string());
-
         args.push(format!("--env"));
         args.push(env.clone());
 

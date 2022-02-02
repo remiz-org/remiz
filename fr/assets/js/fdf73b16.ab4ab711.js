@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[321],{8757:function(e){e.exports=JSON.parse('{"allTagsPath":"/remiz/fr/blog/tags","slug":"/remiz/fr/blog/tags/facebook","name":"facebook","count":1,"permalink":"/remiz/fr/blog/tags/facebook"}')}}]);

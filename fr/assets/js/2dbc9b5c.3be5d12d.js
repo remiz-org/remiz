@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[369],{7746:function(a){a.exports=JSON.parse('{"allTagsPath":"/remiz/fr/blog/tags","slug":"/remiz/fr/blog/tags/hola","name":"hola","count":1,"permalink":"/remiz/fr/blog/tags/hola"}')}}]);

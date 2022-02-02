@@ -7,6 +7,7 @@
 <p align="center">
   <a href="#" alt="maintenance-status"><img src="https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg"/></a>
   <a href="#" alt="integration"><img src="https://github.com/remiz-org/remiz/actions/workflows/test.yml/badge.svg"/></a>
+  <a href="https://remiz-org.github.io/remiz/", alt="Website/Documentation"><img src="https://img.shields.io/badge/Documentation-OK-15afff" /></a>
   <a href="https://opensource.org/licenses/MIT" alt="License: MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"/></a>
   <a href="https://github.com/remiz-org/remiz/releases/latest" alt="Github All Releases"><img src="https://img.shields.io/github/downloads/remiz-org/remiz/total.svg"/></a>
 </p>

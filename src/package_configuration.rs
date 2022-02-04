@@ -38,8 +38,25 @@ impl PackageConfig {
                 return Err(RemizError::BadTOMLFormat);
             }
         };
-        let name = parsed_toml["info"]["name"].as_str().unwrap().to_string();
-        let version = Version::parse(parsed_toml["info"]["version"].as_str().unwrap()).expect(
+
+        check_all_required_fields_are_available(&parsed_toml)?;
+
+        let name = match parsed_toml["info"]["name"].as_str() {
+            Some(name) => name.to_string(),
+            _ => {
+                error!("Missing 'name' field in TOML file: {:?}", path);
+                return Err(RemizError::MissingField("name".to_string()));
+            }
+        };
+        let version_string = match parsed_toml["info"]["version"].as_str(){
+            Some(version_string) => version_string.to_string(),
+            _ => {
+                error!("Missing 'version' field in TOML file: {:?}", path);
+                return Err(RemizError::MissingField("version".to_string()));
+            }
+        };
+
+        let version = Version::parse(&version_string).expect(
             "Could not parse package version. Please use semver as defined by https://semver.org/.",
         );
         // TODO: parse other fields and add them
@@ -82,4 +99,21 @@ impl PackageConfig {
             subpackages,
         })
     }
+}
+
+fn check_all_required_fields_are_available(
+    toml: &Value,
+) -> Result<(), RemizError> {
+    if !toml.get("info").is_some() {
+        return Err(RemizError::MissingField("info".to_string()));
+    }
+
+    if !toml["info"].get("name").is_some() {
+        return Err(RemizError::MissingField("info.name".to_string()));
+    }
+
+    if !toml["info"].get("version").is_some() {
+        return Err(RemizError::MissingField("info.version".to_string()));
+    }
+    Ok(())
 }

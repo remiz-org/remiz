@@ -5,6 +5,7 @@ use std::{io, path::PathBuf};
 pub enum RemizError {
     BadRemizFormat,
     BadTOMLFormat,
+    MissingField(String),
     NoGlobalConfig,
     PermissionDenied,
     SubpackageNotCreated,

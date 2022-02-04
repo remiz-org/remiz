@@ -2,11 +2,9 @@
 sidebar_position: 1
 ---
 
-# About Remiz
+# Introduction
 
 Let's discover in this page what you can do with **Remiz**.
-
-## Introduction
 
 Remiz is a simple (but extensible) command line tool to create and deploy reproducible copy of your projects. All the data is serialized into a single compressed binary file ending with ".pack" (customizable).
 

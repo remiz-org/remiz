@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Create a Document
+# Set up global configuration
 
 Documents are **groups of pages** connected through:
 

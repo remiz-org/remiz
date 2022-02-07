@@ -101,9 +101,7 @@ impl PackageConfig {
     }
 }
 
-fn check_all_required_fields_are_available(
-    toml: &Value,
-) -> Result<(), RemizError> {
+fn check_all_required_fields_are_available(toml: &Value) -> Result<(), RemizError> {
     if !toml.get("info").is_some() {
         return Err(RemizError::MissingField("info".to_string()));
     }

@@ -22,26 +22,31 @@ pub fn build(
     // For each store used, write .pack
     for store in global_conf.stores {
         let template_filename = store.get_template_filename();
-        let filename = template_filename.replace("{name}", &package_config.metadata.name);
-        let filename = filename.to_case(Case::Snake);
+        let filename = template_filename.replace("{name}", &package_config.metadata.name.to_case(Case::Snake));
         let filename = filename.replace("{version}", &package_config.metadata.version.to_string());
         trace!("Getting parent store uri ('{}')...", store.name);
         let package_folder = PathBuf::from(store.uri.parent().unwrap());
-        let package_path = package_folder.join(filename);
+        let package_relative_path = package_folder.join(filename);
+
+        // make path relative to global conf path (is relative)
+        let destination_path = match package_relative_path.is_relative() {
+            true => global_conf.path.parent().unwrap().join(package_relative_path),
+            false => package_relative_path,
+        };
 
         // if package already exists, throw error
-        if package_path.exists() {
+        if destination_path.exists() {
             error!(
                 "{} already exists. Please bump version or remove file.",
-                package_path.display()
+                destination_path.display()
             );
-            return Err(RemizError::PackageAlreadyExists(package_path));
+            return Err(RemizError::PackageAlreadyExists(destination_path));
         }
 
-        package.write(&package_path)?;
+        package.write(&destination_path)?;
         info!(
             "Package created at {:?} (store '{}')",
-            package_path, store.name
+            destination_path, store.name
         );
     }
 

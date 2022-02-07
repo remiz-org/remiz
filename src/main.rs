@@ -15,6 +15,7 @@ mod package;
 mod package_configuration;
 mod subpackage;
 mod unpack;
+mod store;
 
 use std::process;
 
@@ -24,6 +25,7 @@ use deploy_package::deploy;
 use diff::diff;
 use inspect::inspect;
 use unpack::unpack;
+
 
 fn main() {
     let args = parse_args();

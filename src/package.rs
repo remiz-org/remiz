@@ -106,6 +106,8 @@ impl Package {
                 }
             }
 
+            trace!("Calling packager {}...", &path_to_subpackager.display());
+
             // Call packager
             let output = Command::new(&path_to_subpackager)
                 .current_dir(&package_config.path.parent().unwrap())
@@ -115,6 +117,9 @@ impl Package {
 
             match output {
                 Ok(output) => {
+                    let status_code = output.status.code().unwrap();
+                    trace!("Packager {} exits with code {}", &sub.name, status_code);
+
                     // Print the stdout of the subpackager
                     let stdout = String::from_utf8_lossy(&output.stdout);
                     let stderr = String::from_utf8_lossy(&output.stderr);
@@ -126,7 +131,7 @@ impl Package {
                         error!("   --- {} (stderr) ---\n{}", &sub.name, stderr);
                     }
 
-                    if output.status.code().unwrap() != 0 {
+                    if status_code != 0 {
                         error!("Subpackager {} failed.", &sub.name);
                         fs::remove_dir_all(subpackage_path)?;
                         return Err(RemizError::SubpackagerFailed);
@@ -284,7 +289,7 @@ impl Package {
 
         debug!("Package created. Writing content to {:?}...", path);
 
-        // Create all directories is missing in path
+        // Create all missing directories in path
         fs::create_dir_all(path.parent().unwrap())?;
 
         // Create the file

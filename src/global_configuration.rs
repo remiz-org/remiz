@@ -2,22 +2,8 @@ use std::{collections::HashMap, fs, path::PathBuf};
 
 use toml::Value;
 
-use crate::errors::RemizError;
+use crate::{errors::RemizError, store::Store};
 
-#[derive(Debug, Clone)]
-pub struct Store {
-    pub name: String,
-    pub uri: PathBuf,
-}
-
-impl Store {
-    pub fn get_template_filename(&self) -> String {
-        match self.uri.file_name() {
-            Some(path) => path.to_str().unwrap().to_string(),
-            None => "{name}_{version}.pack".to_string(),
-        }
-    }
-}
 
 #[derive(Debug, Clone)]
 pub struct GlobalConfig {

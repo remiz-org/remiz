@@ -6,6 +6,9 @@ use crate::errors::RemizError;
 use crate::global_configuration::GlobalConfig;
 use crate::package::Package;
 use crate::package_configuration::PackageConfig;
+use crate::store::Store;
+
+
 
 /// Try to build a package given a configuration file
 pub fn build(
@@ -21,17 +24,12 @@ pub fn build(
 
     // For each store used, write .pack
     for store in global_conf.stores {
-        let template_filename = store.get_template_filename();
-        let filename = template_filename.replace("{name}", &package_config.metadata.name.to_case(Case::Snake));
-        let filename = filename.replace("{version}", &package_config.metadata.version.to_string());
-        trace!("Getting parent store uri ('{}')...", store.name);
-        let package_folder = PathBuf::from(store.uri.parent().unwrap());
-        let package_relative_path = package_folder.join(filename);
+        let destination_path = store.get_package_file_path(&package_config);
 
         // make path relative to global conf path (is relative)
-        let destination_path = match package_relative_path.is_relative() {
-            true => global_conf.path.parent().unwrap().join(package_relative_path),
-            false => package_relative_path,
+         let destination_path = match destination_path.is_relative() {
+            true => global_conf.path.parent().unwrap().join(destination_path),
+            false => destination_path,
         };
 
         // if package already exists, throw error

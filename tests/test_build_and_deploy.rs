@@ -38,7 +38,7 @@ mod tests {
         assert_eq!(return_code, 0);
 
         // Test that the .pack file has been successfully built
-        let path_to_pack = PathBuf::from("tests/packages/my_project_v1.2.3.pack")
+        let path_to_pack = PathBuf::from("tests/packages/my_project/my_project_v1.2.3.pack")
             .canonicalize()
             .unwrap();
 

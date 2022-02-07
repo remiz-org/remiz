@@ -106,11 +106,13 @@ impl Package {
                 }
             }
 
+            let mut current_dir = package_config.path.clone().canonicalize().unwrap();
+            current_dir.pop(); // remove filename
             trace!("Calling packager {}...", &path_to_subpackager.display());
 
             // Call packager
             let output = Command::new(&path_to_subpackager)
-                .current_dir(&package_config.path.parent().unwrap())
+                .current_dir(&current_dir)
                 .env("REMIZ", "1")
                 .args(args)
                 .output();

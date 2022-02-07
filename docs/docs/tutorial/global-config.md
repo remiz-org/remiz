@@ -19,42 +19,30 @@ Create a toml file at where the binary is located, for example `remiz/configurat
 ```md title="configuration.toml"
 [packagers]
 copy_files = "packagers/copy_files.py"
-bar = "packagers/bar.py"
 
 [store]
 local = "packages/{name}_v{version}.pack"
 ```
 
-A new document is now available at `http://localhost:3000/docs/hello`.
+You will find an explanation for each line of the file below.
 
-## Configure the Sidebar
 
-Docusaurus automatically **creates a sidebar** from the `docs` folder.
+## Packagers section
+In this section, each value represents a packager. A Packager is a script or program
+that is in charge of copying files of your project in a 'magic' folder (when building)
+and also in charge of deploying the files when deploying.
 
-Add metadata to customize the sidebar label and position:
+In this example, `copy_files` is the name of the packager. You can name it as you like
+but you should keep in mind that you will have to use this name in the package configuration
+(next page).
 
-```md title="docs/hello.md" {1-4}
----
-sidebar_label: 'Hi!'
-sidebar_position: 3
----
+The value of this attribute must be the path to the packager.
 
-# Hello
+    :::tip Tip
 
-This is my **first Docusaurus document**!
-```
+    You should use the shebang syntax at the top of any packager that is interpreted.
+    For example, in Python, the first line may be `#!/usr/bin/env python3`.
 
-It is also possible to create your sidebar explicitly in `sidebars.js`:
+    :::
 
-```diff title="sidebars.js"
-module.exports = {
-  tutorialSidebar: [
-    {
-      type: 'category',
-      label: 'Tutorial',
--     items: [...],
-+     items: ['hello'],
-    },
-  ],
-};
-```
+## Store section

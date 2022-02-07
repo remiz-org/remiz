@@ -31,6 +31,7 @@ impl Package {
         global_conf: &GlobalConfig,
         package_config: &PackageConfig,
     ) -> Result<Package, RemizError> {
+        trace!("Building package...");
         let mut subpackages = Vec::new();
         // For each subpackage in package config, call the packager
         // defined in the global configuration file.
@@ -61,8 +62,16 @@ impl Package {
                     );
                     return Err(RemizError::SubpackagerNotFound);
                 }
-            }
-            .canonicalize()?;
+            };
+
+            // Make sure the path is absolute and check if it exists.
+            let path_to_subpackager = match path_to_subpackager.canonicalize() {
+                Ok(path) => path,
+                Err(e) => {
+                    error!("{}", e);
+                    return Err(RemizError::SubpackagerNotFound);
+                }
+            };
 
             let uuid = Uuid::new_v4();
 

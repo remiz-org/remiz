@@ -23,7 +23,7 @@ impl PackageConfig {
         let mut file = match File::open(&path) {
             Ok(file) => file,
             Err(err) => {
-                error!("Could not open configuration file: {:?}", path);
+                error!("Could not open package configuration file: {:?}", path);
                 return Err(RemizError::FileNotFound(err.to_string()));
             }
         };
@@ -59,7 +59,7 @@ impl PackageConfig {
         let version = Version::parse(&version_string).expect(
             "Could not parse package version. Please use semver as defined by https://semver.org/.",
         );
-        // TODO: parse other fields and add them
+
         let mut other = Vec::new();
         for (other_metadata_name, other_metadata_value) in parsed_toml["info"].as_table().unwrap() {
             if other_metadata_name != "name" && other_metadata_name != "version" {
@@ -92,6 +92,8 @@ impl PackageConfig {
                 })
             }
         }
+
+        trace!("Package configuration loaded");
 
         Ok(PackageConfig {
             path,

@@ -78,6 +78,8 @@ impl GlobalConfig {
             });
         }
 
+        trace!("Global configuration loaded");
+
         Ok(GlobalConfig {
             path: global_configuration_path,
             packagers,

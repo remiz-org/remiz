@@ -4,20 +4,25 @@ sidebar_position: 2
 
 # Set up global configuration
 
-Documents are **groups of pages** connected through:
+The global configuration file is required for Remiz to work.
+You can specify the location of the file using the -g/--global_config_file command flag. If not specified, Remiz will look for the configuration file to be put in the same directory as the binary.
 
-- a **sidebar**
-- **previous/next navigation**
-- **versioning**
+A configuration file includes at 2 sections:
 
-## Create your first Doc
+- all **packagers** to use when building/deploying
+- all **stores** in each you want to store/deploy from the artifact file.
 
-Create a markdown file at `docs/hello.md`:
+## Create your first global configuration
 
-```md title="docs/hello.md"
-# Hello
+Create a toml file at where the binary is located, for example `remiz/configuration.toml`:
 
-This is my **first Docusaurus document**!
+```md title="configuration.toml"
+[packagers]
+copy_files = "packagers/copy_files.py"
+bar = "packagers/bar.py"
+
+[store]
+local = "packages/{name}_v{version}.pack"
 ```
 
 A new document is now available at `http://localhost:3000/docs/hello`.

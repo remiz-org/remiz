@@ -21,7 +21,7 @@ Create a toml file at where the binary is located, for example `remiz/configurat
 copy_files = "packagers/copy_files.py"
 
 [store]
-local = "packages/{name}_v{version}.pack"
+local = "packages/{name}/{name}_v{version}.pack"
 ```
 
 You will find an explanation for each line of the file below.
@@ -46,3 +46,14 @@ For example, in Python, the first line may be `#!/usr/bin/env python3`.
 :::
 
 ## Store section
+
+The `[store]` section defines all the locations where your package will be
+stored. It may be a local or a remote file system (via SFTP, ...).
+For now, only local storage is supported.
+In this example, `local = "packages/{name}/{name}_v{version}.pack"` will store
+all packages in `packages/{name}/{name}_v{version}.pack` path with all
+variables relative to the project substitued. For example, if the package name
+is 'foo' and version is '1.0.0', the final path will be
+`packages/foo/foo_v1.0.0.pack`.
+`{name}` and `{version}` are defined in the package configuration file.
+This topic is covered in the next page.

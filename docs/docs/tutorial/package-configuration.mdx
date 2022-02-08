@@ -1,0 +1,60 @@
+---
+sidebar_position: 3
+---
+
+# Write your first package configuration
+
+For each package you want to build/deploy, you need to write its configuration file.
+This file describes metadata (name of the project, version number, description...)
+and the structure of your project.
+
+## Content of the file
+
+Create a file and name it like you want, for example `packages_conf/foo.toml`:
+
+```toml title="packages_conf/foo.toml"
+[info]
+name = "My Foo project"
+description = "My project description here"
+version = "1.2.3"
+
+[copy_files]
+test_1 = "./src/test_1.sh"
+test_2 = "./src/test_2.py"
+test_3 = [
+    "./data/1.csv",
+    "./data/2.csv",
+    "./data/3.csv",
+]
+```
+
+## Info section
+In the `[info]`, 2 fields are required : the package name and the version number.
+The package name is transformed in snake_case when you build the file.
+The version number must be semver compliant.
+More information on the possibilties here : [https://semver.org/](https://semver.org/)
+
+
+
+## Other sections
+
+All other sections are treated as custom packager.
+The key is passed to the packager as the argument name, and values are passed as the argument value.
+For exemple, the following TOML :
+```toml
+[copy_files]
+test_1 = "./src/test_1.sh"
+test_2 = [
+    "./data/1.csv",
+    "./data/2.csv",
+]
+```
+
+will be translated to this command :
+`--test_1 "./src/test_1.sh" --test_2 "./data/1.csv" --test_2 "./data/1.csv"`
+
+:::caution Caution
+
+For any parameter accepting TOML array (like `test_2`), make sure your packager can handle all values. You can find an exemple here : [https://github.com/remiz-org/remiz/blob/main/tests/packagers/copy_files.py](https://github.com/remiz-org/remiz/blob/main/tests/packagers/copy_files.py)
+
+:::

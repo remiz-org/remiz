@@ -15,8 +15,8 @@ Remiz is open source (MIT licensed), cross platform, fast and fully customizable
 
 ### The .pack format
 
-Remiz stands on Multi Layer Archive format (more info : [MLA](https://github.com/ANSSI-FR/MLA)).
+Remiz stands on the Multi Layer Archive format (more info : [MLA](https://github.com/ANSSI-FR/MLA)).
 It's based on Brotli compression (developped by the Dropbox team) and supports encryption.
-MLA is developped by the ANSSI (French National Agency for the Security of Information Systems).
+MLA is developped by the ANSSI 🇫🇷 (French National Agency for the Security of Information Systems).
 
 

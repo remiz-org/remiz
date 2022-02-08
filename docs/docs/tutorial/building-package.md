@@ -3,26 +3,13 @@ sidebar_position: 5
 ---
 
 # Building package
+This page describes the building process and how to build your first package.
 
-Docusaurus is a **static-site-generator** (also called **[Jamstack](https://jamstack.org/)**).
+## Build process
+For each part of the project, call packager -> .pack
 
-It builds your site as simple **static HTML, JavaScript and CSS files**.
+## Build command
 
-## Build your site
+## Verify your .pack package
 
-Build your site **for production**:
-
-```bash
-npm run build
-```
-
-The static files are generated in the `build` folder.
-
-## Deploy your site
-
-Test your production build locally:
-
-```bash
-npm run serve
-```
-
+with unpack

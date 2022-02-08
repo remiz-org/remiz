@@ -31,7 +31,7 @@ impl Package {
         global_conf: &GlobalConfig,
         package_config: &PackageConfig,
     ) -> Result<Package, RemizError> {
-        trace!("Building package...");
+        info!("Building package {} - {}...", package_config.metadata.name, package_config.metadata.version);
         let mut subpackages = Vec::new();
         // For each subpackage in package config, call the packager
         // defined in the global configuration file.

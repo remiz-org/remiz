@@ -1,13 +1,9 @@
 use std::path::PathBuf;
 
-use convert_case::{Case, Casing};
-
 use crate::errors::RemizError;
 use crate::global_configuration::GlobalConfig;
 use crate::package::Package;
 use crate::package_configuration::PackageConfig;
-use crate::store::Store;
-
 
 
 /// Try to build a package given a configuration file

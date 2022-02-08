@@ -28,7 +28,7 @@ pub fn deploy(
             .parent()
             .unwrap()
             .join(&package.metadata.name.to_case(Case::Snake));
-        let folder_path = &subpackage.decompress(&base_path)?;
+        let folder_path = &subpackage.uncompress(&base_path)?;
 
         // Call the subremiz
         let path_to_subpackager = global_conf.packagers.get(subpackage_name).unwrap();

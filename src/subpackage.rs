@@ -18,7 +18,7 @@ pub struct Subpackage {
 impl Subpackage {
     /// Decompress files inside the subpackage to the given path.
     /// Return the magic path created.
-    pub fn decompress(&self, base_path: &PathBuf) -> Result<PathBuf, RemizError> {
+    pub fn uncompress(&self, base_path: &PathBuf) -> Result<PathBuf, RemizError> {
         let uuid = Uuid::new_v4();
         let folder_name = format!("{}_{}", &self.name, uuid.to_simple());
 

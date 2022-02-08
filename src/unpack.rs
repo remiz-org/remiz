@@ -23,7 +23,7 @@ pub fn unpack(path_to_package: PathBuf, destination: Option<PathBuf>) -> Result<
     );
 
     for subpackage in package.subpackages {
-        subpackage.decompress(&destination_path)?;
+        subpackage.uncompress(&destination_path)?;
     }
 
     Ok(())

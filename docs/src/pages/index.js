@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Remiz | Simple CLI tool to build and deploy packages">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

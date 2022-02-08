@@ -144,7 +144,6 @@ impl Package {
                         .into_iter()
                         .filter_map(|e| e.ok())
                     {
-                        number_files_in_subpackage += 1;
                         if e.metadata().unwrap().is_file() {
                             let data = match fs::read(&e.path()) {
                                 Ok(data) => data,
@@ -159,7 +158,7 @@ impl Package {
                                 }
                             };
                             let relative_file_path =
-                                e.path().strip_prefix(&subpackage_path).unwrap();
+                            e.path().strip_prefix(&subpackage_path).unwrap();
                             files.insert(
                                 format!(
                                     "{}/{}",
@@ -168,6 +167,7 @@ impl Package {
                                 ),
                                 data,
                             );
+                            number_files_in_subpackage += 1;
                         }
                     }
 

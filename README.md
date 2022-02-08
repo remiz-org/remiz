@@ -17,9 +17,9 @@
 Remiz is a simple (but extensible) command line tool to create and deploy reproducible copy of your projects.
 All the data is serialized into a single compressed binary file ending with ".pack" (customizable).
 
-This tool could be used inside a CI/CD pipeline (Gitlab, Jenkins, ...) to describe the packaging and deployment process or locally on a non versionned project.
+This tool could be used inside a CI/CD pipeline (Gitlab, Jenkins, ...) to describe the packaging and deployment process. You can also use it on a local machine whether the project is versioned or not.
 
-Remiz is open source (MIT licensed), cross platform, fast and fully customizable with TOML configurations file.
+Remiz is open source (MIT licensed), cross platform, fast and fully customizable with TOML configuration files.
 
 ## How to get started
 

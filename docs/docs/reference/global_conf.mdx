@@ -1,0 +1,18 @@
+---
+sidebar_position: 1
+---
+
+# Global configuration file specification
+
+## File location
+Place the `configuration.toml` file in the same directory as the Remiz binary.
+
+## Example
+```json title="configuration.toml"
+[packagers]
+copy_files = "packagers/copy_files.py"
+bar = "packagers/bar.py"
+
+[store]
+local = "packages/{name}/{name}_v{version}.pack"
+```

@@ -13,6 +13,7 @@ pub fn deploy(
     path_to_package_file: PathBuf,
     env: String,
     global_config_file: Option<PathBuf>,
+    extra_args: Vec<String>,
 ) -> Result<(), RemizError> {
     let global_conf = GlobalConfig::load(global_config_file)?;
 
@@ -46,6 +47,9 @@ pub fn deploy(
         args.push((&abs_folder_path).to_string());
         args.push(format!("--env"));
         args.push(env.clone());
+
+        // Add extra args (if present)
+        args.extend(extra_args.clone());
 
         trace!("Building command...");
         let output = Command::new(&path_to_subpackager)

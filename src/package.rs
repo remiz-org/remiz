@@ -30,6 +30,7 @@ impl Package {
     pub fn from_config(
         global_conf: &GlobalConfig,
         package_config: &PackageConfig,
+        extra_args: Vec<String>,
     ) -> Result<Package, RemizError> {
         info!("Building package {} - {}...", package_config.metadata.name, package_config.metadata.version);
         let mut subpackages = Vec::new();
@@ -105,6 +106,9 @@ impl Package {
                     }
                 }
             }
+
+            // Add extra args (if present)
+            args.extend(extra_args.clone());
 
             let mut current_dir = package_config.path.clone().canonicalize().unwrap();
             current_dir.pop(); // remove filename

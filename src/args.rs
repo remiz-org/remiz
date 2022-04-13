@@ -23,6 +23,9 @@ pub enum Command {
         /// Overide the path of the global configuration file (optional)
         #[structopt(short, long, parse(from_os_str))]
         global_config_file: Option<PathBuf>,
+        /// Extra arguments (after '--') can be passed to package builders
+        #[clap(multiple_occurrences = true, last = true)]
+        extra_args: Vec<String>,
     },
     /// Deploy a project from a package file
     Deploy {
@@ -35,6 +38,9 @@ pub enum Command {
         /// Overide the path of the global configuration file (optional)
         #[structopt(short, long, parse(from_os_str))]
         global_config_file: Option<PathBuf>,
+        /// Extra arguments (after '--') can be passed to package deployers
+        #[clap(multiple_occurrences = true, last = true)]
+        extra_args: Vec<String>,
     },
     /// Inspect a package file
     Inspect {

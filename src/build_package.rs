@@ -10,13 +10,14 @@ use crate::package_configuration::PackageConfig;
 pub fn build(
     path_to_config_file: PathBuf,
     global_config_file: Option<PathBuf>,
+    extra_args: Vec<String>,
 ) -> Result<(), RemizError> {
     let global_conf = GlobalConfig::load(global_config_file)?;
 
     let package_config = PackageConfig::from_file(path_to_config_file)?;
 
     // Build .pack package...
-    let package = Package::from_config(&global_conf, &package_config)?;
+    let package = Package::from_config(&global_conf, &package_config, extra_args)?;
 
     // For each store used, write .pack
     for store in global_conf.stores {

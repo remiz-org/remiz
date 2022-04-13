@@ -35,8 +35,9 @@ fn main() {
         Command::Build {
             path_to_config_file,
             global_config_file,
+            extra_args
         } => {
-            match build(path_to_config_file, global_config_file) {
+            match build(path_to_config_file, global_config_file, extra_args) {
                 Ok(()) => info!("Successfully build package."),
                 Err(err) => {
                     error!("Failed to build package ({}).", err);
@@ -48,7 +49,8 @@ fn main() {
             path_to_package_file,
             env,
             global_config_file,
-        } => match deploy(path_to_package_file, env, global_config_file) {
+            extra_args
+        } => match deploy(path_to_package_file, env, global_config_file, extra_args) {
             Ok(()) => info!("Successfully deployed package."),
             Err(err) => error!("Failed to deploy package ({}).", err),
         },

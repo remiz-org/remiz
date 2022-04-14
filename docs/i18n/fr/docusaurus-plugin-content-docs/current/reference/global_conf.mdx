@@ -2,12 +2,15 @@
 sidebar_position: 1
 ---
 
-# Global configuration file specification
+# Spécification du fichier de configuration globale
 
-## File location
-Place the `configuration.toml` file in the same directory as the Remiz binary.
+## Emplacement du fichier
+Il est recommandé de positionner le fichier `configuration.toml` dans le même
+répertoire que le binaire Remiz. Il est tout de même possible de le positionner
+ailleurs, l'appel à Remiz devra se faire par l'ajout du flag `-g` permettant
+de spécifier son emplacement.
 
-## Example
+## Exemple de fichier de configuration
 ```json title="configuration.toml"
 [packagers]
 copy_files = "packagers/copy_files.py"

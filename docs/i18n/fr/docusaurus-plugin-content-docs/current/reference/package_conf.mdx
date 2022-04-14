@@ -1,0 +1,29 @@
+---
+sidebar_position: 2
+---
+
+# Package configuration file specification
+
+## File location
+The name and location of this file is not important.
+It's only used to build the package, so make sure the path and name of the file is passed correctly to `remiz buid` command.
+
+## Example
+```json title="foo.toml"
+[info]
+name = "My project"
+description = "My project package description"
+version = "1.2.3"
+
+[copy_files]
+test_1 = "./src/test_1.sh"
+test_2 = "./src/test_2.py"
+test_3 = [
+    "./data/1.csv",
+    "./data/2.csv",
+    "./data/3.csv",
+]
+
+[bar]
+bar_1 = "./src/test_1.sh"
+```

@@ -1,0 +1,31 @@
+---
+sidebar_position: 1
+---
+
+
+# Introduction
+
+Découvrons ensemble ce que vous pouvez faire avec **Remiz**.
+
+Remiz est un outil simple (mais extensible) en ligne de commande pour créer
+et déployer des copies reproductibles de vos projets.
+Toutes les données sont sérialisées dans un seul fichier binaire compressé,
+dont l'extension est ".pack" (personnalisable).
+
+Cet outil est facilement intégrable dans une pipeline de CI/CD (Gitlab,
+Jenkins, ...) pour décrire le processus de construction et de déploiement via
+des fichiers de configuration.
+
+Remiz est open source (sous MIT), multi-plateforme (Windows, Mac, Linux),
+rapide et pleinement personnalisable à l'aide de fichiers de configuration TOML.
+
+
+### A propos du format .pack
+
+Remiz s'appuie sur le format Multi Layer Archive (plus d'informations : [MLA](https://github.com/ANSSI-FR/MLA))
+Il s'agit d'un format basé sur la compression Brotli (développé par l'équipe de chez Dropbox) et supporte
+le chiffrement.
+MLA est développé par l'ANSSI 🇫🇷 (Agence Nationalise de la Securité des Systèmes d'Information).
+
+
+

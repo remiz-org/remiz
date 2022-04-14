@@ -15,8 +15,8 @@ you may want to choose the .tar.gz download option and may want to execute
 the following command :
 
 ```
-wget https://github.com/remiz-org/remiz/releases/download/v0.0.17/remiz_v0.0.17_x86_64-unknown-linux-musl.tar.gz
-tar -xf remiz_v0.0.17_x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/remiz-org/remiz/releases/download/v0.0.23/remiz_v0.0.23_x86_64-unknown-linux-musl.tar.gz
+tar -xf remiz_v0.0.23_x86_64-unknown-linux-musl.tar.gz
 ```
 
 
@@ -38,7 +38,7 @@ to write the configuration where the binary resides.
 
 If everything is set up, you will be able to execute the `remiz` command.
 ```text title="remiz"
-remiz 0.0.17
+remiz 0.0.23
 Packaging tool to build and deploy packages
 
 USAGE:

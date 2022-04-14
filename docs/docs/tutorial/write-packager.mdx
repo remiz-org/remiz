@@ -4,4 +4,89 @@ sidebar_position: 4
 
 # Write your own packager
 
-TODO
+## Objectives
+A packager lets you organize your project by components.
+Each packager is responsible for saving all assets (when building a package)
+and how to deploy them.
+
+For example, if you want to bundle and deploy a dynamic web site, you could write
+a packager responsible for the backend logic (Python scripts e.g),
+another packager for the frontend part (in Javascript) and another one for
+your database (like .sql dump).
+
+A packager could be written in any language, as long as the file(s) could be executed.
+
+## Implement a simple packager
+
+Implemeting a packager is very straightforward. It consists of 2 main steps :
+- write the logic needed to build the package
+- write the logic needed to deploy the package
+
+All the necessary informations needed for your packager are passed by argument.
+
+For example, a good starting in Python could be :
+
+```python
+#!/usr/bin/python3
+
+import argparse
+
+def get_args():
+    parser = argparse.ArgumentParser(description='copy_files packager.')
+
+    subparser = parser.add_subparsers(dest="subcommand", required=True)
+    build_parser = subparser.add_parser("build")
+    build_parser.add_argument('--path', required=True)
+
+    deploy_parser = subparser.add_parser("deploy")
+    deploy_parser.add_argument('--path', required=True)
+    deploy_parser.add_argument('--env', required=True)
+
+    return parser.parse_known_args()
+...
+if __name__ == "__main__":
+    args, unknown_args = get_args()
+
+    if args.subcommand == "build":
+        build(args.path, unknown_args)
+
+    if args.subcommand == "deploy":
+        deploy(args.path, unknown_args, args.env)
+
+```
+
+All you to do is implement `build` and `deploy` functions.
+
+## Declare packager
+Before using a packager, you must declare it to Remiz via the global
+configuration file.
+
+For example, if you want to register a 'foo' packager pointing to a Python
+script, add it to the `[packagers]` section :
+```toml
+foo = "path/to/foo/main.py"
+```
+
+## Use it in your package configuration files
+Once declared, you could use it in all packages configuration file that need it.
+
+Simply add a section named after your packager, and add all entries required
+by your packager :
+
+```toml
+[foo]
+test_1 = "./src/test_1.sh"
+test_2 = "./src/test_2.py"
+test_3 = [
+    "./data/1.csv",
+    "./data/2.csv",
+    "./data/3.csv",
+]
+```
+
+:::tip Tip
+
+When testing a packager, a good practice is to use the `unpack` subcommand of
+Remiz and see if any files is missing.
+
+:::

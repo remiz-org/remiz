@@ -42,7 +42,7 @@ pub enum Command {
         #[clap(multiple_occurrences = true, last = true)]
         extra_args: Vec<String>,
     },
-    /// Inspect a package file
+    /// Inspect a package file to (display metadata)
     Inspect {
         /// Path to the package file (.pack).
         #[structopt(parse(from_os_str))]

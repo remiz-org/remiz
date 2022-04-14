@@ -2,40 +2,43 @@
 sidebar_position: 5
 ---
 
-# Building package
-This page describes the building process and how to build your first package.
+# Construction d'un package
+Cette page décrit le processus de consutrction d'un package et comment constuire
+votre premier package.
 
-## Build process
-For each packager declared in your package configuration, Remiz will
-sequentially call your packager entrypoints (as defined in the global
-configuration). For each packager, Remiz will gather files from the
-magic folder. Remiz can register 0, 1 or multiples files from the same packager
-but a warning will be triggered if no file is found.
+## Processus de build/construction
+Pour chaque packager déclaré dans votre configuration de package, Remiz appelera
+séquentiellement le point d'entrée de vos packagers (tel que défini dans la
+configuration globale).
+Pour chaque packager, Remiz récupèrera les fichiers de ces dossiers magiques.
+Remiz peut enregistrer 0, 1 ou plusieurs fichiers issus du même packager mais
+un avertissement sera affiché si aucun fichier n'est trouvé.
 
 :::caution Caution
 
-If a packager exits with a non-zero exit code, Remiz will stop the build process.
+Si un packager sort avec un code retour différent de zéro, Remiz arrêtera le
+processus de construction du package.
 
 :::
 
 
-After all packagers have finished, Remiz will produce the final package
-including all the packagers files plus metadata.
+Après que tous les packagers soient traités, Remiz produira le package final en
+incluant tous les fichiers récupérés et ajoutera de la métadonnée.
 
 
-
-## Build command
-To start the build process, simply call the 'build' subcommand :
+## Commande build
+Pour démarrer la construction d'un package, appelez simplement la sous-commande
+`build` :
 
 `remiz build path/to/package_config.toml`
 
-You could also include the location of the global configuration file to use
-and pass extra arguments to the packagers :
+Vous pouvez également inclure la position du fichier de configuration globale
+à utiliser et passer des arguments supplémentaires aux packagers :
 
 `remiz build path/to/package_config.toml -g path/to/global_config.toml -- --extra args`
 
-## Verify your .pack package
-Once your package is successfully built, you have to inspect it first before
-considering your pipeline stable.
+## Vérifiez vos packages .pack
+Une fois que votre package a été construit correctement, vous devez l'inspecter
+avant de considérer votre pipeline stable.
 
-You could use the `unpack` command for this purpose.
+Vous pouvez utiliser la commande `unpack` à cet effet.

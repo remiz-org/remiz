@@ -1,0 +1,41 @@
+---
+sidebar_position: 5
+---
+
+# Building package
+This page describes the building process and how to build your first package.
+
+## Build process
+For each packager declared in your package configuration, Remiz will
+sequentially call your packager entrypoints (as defined in the global
+configuration). For each packager, Remiz will gather files from the
+magic folder. Remiz can register 0, 1 or multiples files from the same packager
+but a warning will be triggered if no file is found.
+
+:::caution Caution
+
+If a packager exits with a non-zero exit code, Remiz will stop the build process.
+
+:::
+
+
+After all packagers have finished, Remiz will produce the final package
+including all the packagers files plus metadata.
+
+
+
+## Build command
+To start the build process, simply call the 'build' subcommand :
+
+`remiz build path/to/package_config.toml`
+
+You could also include the location of the global configuration file to use
+and pass extra arguments to the packagers :
+
+`remiz build path/to/package_config.toml -g path/to/global_config.toml -- --extra args`
+
+## Verify your .pack package
+Once your package is successfully built, you have to inspect it first before
+considering your pipeline stable.
+
+You could use the `unpack` command for this purpose.

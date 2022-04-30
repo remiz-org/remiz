@@ -103,7 +103,7 @@ const config = {
             appId: '70LG9BV9XD',
 
             // Clé d'API publique : il est possible de la committer en toute sécurité
-            apiKey: 'a07ebe92a426cd58d2168c81cf9d6dc8',
+            apiKey: 'a515066fb5e5a82d809634f72cf9e86c',
 
             indexName: 'remiz',
 

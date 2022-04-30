@@ -100,7 +100,7 @@ const config = {
         },
         algolia: {
             // L'ID de l'application fourni par Algolia
-            appId: 'D0WV98L0Z4',
+            appId: '70LG9BV9XD',
 
             // Clé d'API publique : il est possible de la committer en toute sécurité
             apiKey: 'a07ebe92a426cd58d2168c81cf9d6dc8',

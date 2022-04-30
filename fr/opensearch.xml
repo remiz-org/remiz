@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Remiz</ShortName>
+  <Description>Search Remiz</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://remiz-org.github.io/remiz/fr/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://remiz-org.github.io/remiz/fr/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://remiz-org.github.io/remiz/fr/opensearch.xml" />
+  <moz:SearchForm>https://remiz-org.github.io/remiz/fr/</moz:SearchForm>
+</OpenSearchDescription>

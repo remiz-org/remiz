@@ -98,6 +98,29 @@ const config = {
             theme: lightCodeTheme,
             darkTheme: darkCodeTheme,
         },
+        algolia: {
+            // L'ID de l'application fourni par Algolia
+            appId: 'D0WV98L0Z4',
+
+            // Clé d'API publique : il est possible de la committer en toute sécurité
+            apiKey: 'a07ebe92a426cd58d2168c81cf9d6dc8',
+
+            indexName: 'remiz',
+
+            // Facultatif : voir la section doc ci-dessous
+            contextualSearch: true,
+
+            // Facultatif : Spécifiez les domaines où la navigation doit se faire par window.location au lieu de history.push. Utile lorsque notre configuration Algolia explore plusieurs sites de documentation et que nous voulons naviguer vers eux avec window.location.href.
+            // externalUrlRegex: 'external\\.com|domain\\.com',
+
+            // Facultatif : paramètres de recherche de Algolia
+            searchParameters: {},
+
+            // Facultatif : chemin pour la page de recherche qui est activée par défaut (`false` pour le désactiver)
+            searchPagePath: 'search',
+
+            //... autres paramètres d'Algolia
+        },
     }),
     i18n: {
         defaultLocale: 'en',
